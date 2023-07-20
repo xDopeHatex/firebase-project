@@ -5,6 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./context/user.context";
+import { ProductsProvider } from "./context/products.context";
+import { CartContextProvider } from "./context/cart.context";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -13,7 +15,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <ProductsProvider>
+          <CartContextProvider>
+            <App />
+          </CartContextProvider>
+        </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
